@@ -17,7 +17,7 @@ spec:
       containers:
       - name: github-runner
         imagePullPolicy: IfNotPresent
-        image: <dockerhub-username>/<image-name>:latest
+        image: mahfuz1/gc_runner:latest
         env:
         - name: GITHUB_OWNER
           valueFrom:
