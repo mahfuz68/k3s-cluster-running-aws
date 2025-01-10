@@ -1,0 +1,7 @@
+- name: Include tasks for K3s Master
+  include_tasks: master.yml
+  when: k3s_role == "master"
+
+- name: Include tasks for K3s Worker
+  include_tasks: worker.yml
+  when: k3s_role == "worker"

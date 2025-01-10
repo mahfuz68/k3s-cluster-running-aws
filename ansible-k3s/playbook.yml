@@ -1,0 +1,9 @@
+- hosts: k3s-master
+  roles:
+    - role: k3s
+      k3s_role: master
+
+- hosts: k3s-workers
+  roles:
+    - role: k3s
+      k3s_role: worker

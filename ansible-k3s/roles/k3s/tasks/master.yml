@@ -1,0 +1,14 @@
+- name: Install K3s on Master
+  shell: curl -sfL https://get.k3s.io | sh -s - --write-kubeconfig-mode 644
+  become: true
+
+- name: Retrieve K3s Token
+  shell: cat /var/lib/rancher/k3s/server/node-token
+  become: true
+  register: k3s_token
+
+- name: Save K3s Token for Workers
+  copy:
+    content: "{{ k3s_token.stdout }}"
+    dest: /tmp/k3s_token
+  delegate_to: localhost
